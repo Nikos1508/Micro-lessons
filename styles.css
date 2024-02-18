@@ -15,7 +15,7 @@ body{
     justify-content: flex-start; 
     align-items: center; 
     gap: 0px;
-    display: inline-flex
+    display: inline-flex;
 }
 #nav-item{
     margin-left: 0px;
@@ -62,6 +62,13 @@ table{
 
 image{
     display: flex;
+}
+
+#lesson{
+    width: 80vw;
+    padding-left: 10%;
+    font-size: 19px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Verdana, sans-serif;
 }
 
 

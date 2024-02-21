@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="/styles.css" /> 
+        <title> Micro-lessons </title>
+    </head>
+    <body>
+        <div id="nav-bar">
+            <img style="width: 180px; height: 180px;" src="/media/default.png" />  
+            
+            <div id="nav-item"><a href="/index.html"> Home Page </a></div>
+            <div id="nav-item"><a href="/arduino.html"> <img src="/media/arduino-logo.png" height="60px"> </a></div>
+            <div id="nav-item"><a href="/raspberry_pi.html"> <img src="/media/raspberry-pi-logo.png" height="60px"> </a></div>
+        </div>
+        <div id="lesson"><h2>Resistors</h2>
+            <p>When building your Arduino projects, you use resistors to limit the amount of current going to certain components in the circuit, 
+            such as LEDs and integrated circuits. To calculate the resistance, you should use a modified version of Ohm’s Law. In the following 
+            equation, R is resistance; <b>V</b><sub>provided</sub> is the voltage supplied from the power source (this is 5V for a standard Arduino digital pin, but 
+            could be more or less if the <b>V</b><sub>in</sub> pin is used); <b>V</b><sub>needed</sub> is the voltage required by the component, and I is the current required 
+            by the component:
+            <br><br>
+            R = (Vprovided - Vneeded) / I
+            <br><br>
+            Here is an example for powering an LED:
+            <br><br>
+            (5V – 2V) / 0.03A = 100Ω
+            <br><br>
+            After you’ve determined which resistor you need, the next task is to find it. Fixed-value resistors use colored bands to 
+            indicate the value of the resistor. To find the value you can use a multimeter on the ohms (Ω) setting, but if you don’t have 
+            a multimeter handy, use the following table to find the value instead. For example, a resistor with brown, black, brown, and 
+            gold bands is a 100Ω resistor with a 5% tolerance.
+        </p>
+            <br>
+            <img src="/media/resistors_codes.png" height="520px" style="padding-right: 250px;"> <img src="/media/app-a-resistor-chart.png">
+            <h2>LEDs</h2>
+            <p>A light-emitting diode (LED) is a semiconductor device that emits light when current flows through it. Electrons in the 
+                semiconductor recombine with electron holes, releasing energy in the form of photons. The color of the light (corresponding 
+                to the energy of the photons) is determined by the energy required for electrons to cross the band gap of the semiconductor.
+            </p>
+            <p>
+                The long pin(leg) of the LED is the anode (positive +) and the short pin(leg) is the cothode (negative -). In order to connect 
+                LED's in and Arduinohe former will be connected in the 5V and the latter in the GND. In between (arduino and negative pin) you have
+                to add a resistor with 220Ω(ohm).
+            </p>
+            <br>
+            <img src="/media/leds_connection.png" height="520px">
+            <h2>Buttons</h2>
+            <p>
+                When the pushbutton is open (unpressed) there is no connection between the two legs of the pushbutton, so the pin is connected to 
+                ground (through the pull-down resistor) and we read a LOW. When the button is closed (pressed), it makes a connection between its 
+                two legs, connecting the pin to 5 volts, so that we read a HIGH.
+            </p>
+            <img src="/media/circuit.png" height="520px">
+        </div>
+    </body>
+</html>

@@ -4,16 +4,133 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" type="text/css" href="styles.css" /> 
+        <link rel="stylesheet" type="text/css" href="/styles.css" /> 
         <title> Micro-lessons </title>
-    </head>
+</head>
     <body>
         <div id="nav-bar">
-            <img style="width: 180px; height: 180px;" src="/media/default.png" />  
+            <img style="width: 180px; height: 180px;" src="/media/default.png" id="banner"/>  
             
             <div id="nav-item"><a href="/index.html"> Home Page </a></div>
             <div id="nav-item"><a href="/arduino.html"> <img src="/media/arduino-logo.png" height="60px"> </a></div>
             <div id="nav-item"><a href="/raspberry_pi.html"> <img src="/media/raspberry-pi-logo.png" height="60px"> </a></div>
         </div>
+        <div id="lessons">
+            <table cellpadding="10px">
+                <tr>
+                    <td> <img src="/media/cover.png" height="160px" style=" padding-left: 0px;"> </td>
+                    <td id="td3" style="text-align: center;"> <a href="#"> <h2> Lesson 1 </h2> <br> <p> Introduction to Raspberry Pi </p> </td>
+                    <td id="td4"> In this lesson you will learn about: <br> 
+                        <ul> <li>Overview of Raspberry Pi hardware and capabilities.</li> <br> 
+                            <li>Understanding the GPIO pins.</li> <br> 
+                            <li>Setting up the Raspberry Pi and connecting peripherals.</li> </ul> </td>
+                </tr>
+                <tr>
+                    <td> <img src="/media/cover.png" height="160px" style=" padding-left: 0px;"> </td>
+                    <td id="td3" style="text-align: center;"> <a href="#"> <h2> Lesson 2 </h2> <br> <p> Installing and Configuring the Operating System </p> </td>
+                    <td id="td4"> In this lesson you will learn about: <br> 
+                        <ul> <li>Introduction to various Raspberry Pi OS options.</li> <br>  
+                            <li>Installing Raspbian (or the latest Raspberry Pi OS).</li>
+                            <li>Basic configuration settings.</li> </ul> </td>
+                </tr>
+                <tr>
+                    <td> <img src="/media/cover.png" height="160px" style=" padding-left: 0px;"> </td>
+                    <td id="td3" style="text-align: center;"> <a href="#"> <h2> Lesson 3 </h2> <br> <p> Python Programming Basics </p> </td>
+                    <td id="td4"> In this lesson you will learn about: <br> 
+                        <ul> <li>The difference between analog and digital signals</li> <br>  
+                            <li>Reading analog input from sensors</li> <br> 
+                            <li>Using digital signals to control actuators</li> </ul> </td>
+                </tr>
+                <tr>
+                    <td> <img src="/media/cover.png" height="160px" style=" padding-left: 0px;"> </td>
+                    <td id="td3" style="text-align: center;"> <a href="#"> <h2> Lesson 4 </h2> <br> <p> GPIO Programming with Python </p> </td>
+                    <td id="td4"> In this lesson you will learn about: <br> 
+                        <ul> <li>Overview of GPIO (General Purpose Input/Output) on Raspberry Pi.</li> <br>  
+                            <li>Writing Python scripts to control LEDs and read input from buttons.</li> </ul> </td>
+                </tr>
+                <tr>
+                    <td> <img src="/media/cover.png" height="170px" style=" padding-left: 0px;"> </td>
+                    <td id="td3" style="text-align: center;"> <a href="#"> <h2> Lesson 5 </h2> <br> <p> Working with Sensors </p> </td>
+                    <td id="td4"> In this lesson you will learn about: <br> 
+                        <ul> <li>Connecting and interfacing various sensors (e.g., temperature, humidity) with Raspberry Pi.</li> <br>  
+                            <li>Reading sensor data and using it in Python scripts.</li> </ul> </td>
+                </tr>
+                <tr>
+                    <td> <img src="/media/cover.png" height="170px" style=" padding-left: 0px;"> </td>
+                    <td id="td3" style="text-align: center;"> <a href="#"> <h2> Lesson 6 </h2> <br> <p> Networking and Communication </p> </td>
+                    <td id="td4"> In this lesson you will learn about: <br> 
+                        <ul> <li>Configuring Wi-Fi on Raspberry Pi.</li> <br>  
+                            <li>Introduction to network protocols.</li> <br> 
+                            <li>Basic communication between multiple Raspberry Pi devices.</li> </ul> </td>
+                </tr>
+                <tr>
+                    <td> <img src="/media/cover.png" height="170px" style=" padding-left: 0px;"> </td>
+                    <td id="td3" style="text-align: center;"> <a href="#"> <h2> Lesson 7 </h2> <br> <p> Building a Simple Web Server </p> </td>
+                    <td id="td4"> In this lesson you will learn about: <br> 
+                        <ul> <li>Setting up a basic web server on Raspberry Pi.</li> <br>  
+                            <li>Creating a simple webpage to control GPIO.</li> </ul> </td>
+                </tr>
+                <tr>
+                    <td> <img src="/media/cover.png" height="170px" style=" padding-left: 0px;"> </td>
+                    <td id="td3" style="text-align: center;"> <a href="#"> <h2> Lesson 8 </h2> <br> <p> Introduction to IoT (Internet of Things) </p> </td>
+                    <td id="td4"> In this lesson you will learn about: <br> 
+                        <ul> <li>Understanding IoT concepts.</li> <br>  
+                            <li>Connecting Raspberry Pi to cloud services.</li> <br> 
+                            <li>Building simple IoT projects</li> </ul> </td>
+                </tr>
+                <tr>
+                    <td> <img src="/media/cover.png" height="170px" style=" padding-left: 0px;"> </td>
+                    <td id="td3" style="text-align: center;"> <a href="#"> <h2> Lesson 9 </h2> <br> <p> Project: <br> Final Project </p> </td>
+                    <td id="td4"> In this lesson you will learn about: <br> 
+                        <ul> <li># # # # # #</li> <br>  
+                            <li># # # # # #</li> <br> 
+                            <li># # # # # #</li> </ul> </td>
+                </tr>
+            </table>
+        </div>
     </body>
 </html>
+
+<!--
+    Lesson 1: Introduction to Raspberry Pi
+
+Overview of Raspberry Pi hardware and capabilities.
+Understanding the GPIO pins.
+Setting up the Raspberry Pi and connecting peripherals.
+
+Lesson 2: Installing and Configuring the Operating System
+Introduction to various Raspberry Pi OS options.
+Installing Raspbian (or the latest Raspberry Pi OS).
+Basic configuration settings.
+
+Lesson 3: Python Programming Basics
+Introduction to Python programming language.
+Writing and executing simple Python scripts.
+Basics of variables, data types, and control structures.
+
+Lesson 4: GPIO Programming with Python
+Overview of GPIO (General Purpose Input/Output) on Raspberry Pi.
+Writing Python scripts to control LEDs and read input from buttons.
+
+Lesson 5: Working with Sensors
+Connecting and interfacing various sensors (e.g., temperature, humidity) with Raspberry Pi.
+Reading sensor data and using it in Python scripts.
+
+Lesson 6: Networking and Communication
+Configuring Wi-Fi on Raspberry Pi.
+Introduction to network protocols.
+Basic communication between multiple Raspberry Pi devices.
+
+Lesson 7: Building a Simple Web Server
+Setting up a basic web server on Raspberry Pi.
+Creating a simple webpage to control GPIO.
+
+Lesson 8: Introduction to IoT (Internet of Things)
+Understanding IoT concepts.
+Connecting Raspberry Pi to cloud services.
+Sending and receiving data from the cloud.
+
+Lesson 9: Final Project
+Students work on a final project combining the skills learned in previous lessons.
+Project ideas could include a home automation system, weather station, or a simple IoT device.
+-->

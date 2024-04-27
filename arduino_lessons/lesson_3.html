@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="/styles.css" /> 
+        <title> Micro-lessons </title>
+    </head>
+    <body>
+        <div id="nav-bar">
+            <img style="width: 180px; height: 180px;" src="/media/default.png" />  
+            
+            <div id="nav-item"><a href="/index.html"> Home Page </a></div>
+            <div id="nav-item"><a href="/arduino.html"> <img src="/media/arduino-logo.png" height="60px"> </a></div>
+            <div id="nav-item"><a href="/raspberry_pi.html"> <img src="/media/raspberry-pi-logo.png" height="60px"> </a></div>
+        </div>
+        <div id="lesson">
+            <p>In the world of electronics, information comes in two main flavors: analog and digital. 
+                Understanding these differences is crucial for working with Arduino and its various components.</p>
+                <h2>Analog Signals</h2>
+                <p>Imagine a dimmer switch for a light bulb. As you turn the knob, the brightness changes smoothly - 
+                    there are infinite possibilities between completely off and fully lit. This continuous variation represents 
+                    an analog signal.Think of it like a dial with countless positions. Used to represent real-world phenomena 
+                    like temperature, sound, or light intensity.</p>
+                <h2>Digital Signals</h2>
+                <p>Now imagine a light switch. It's either on (high voltage) or off (low voltage). 
+                    These two distinct states represent a digital signal.Think of it like a light 
+                    switch with only two positions: ON and OFF. Used to control electronic devices 
+                    like LEDs, motors, or relays.</p>
+                <h2>Reading Analog Input with Sensors</h2>
+                <p>
+                    The Arduino excels at interacting with both worlds. Sensors are devices that convert physical 
+                    quantities (like temperature or light) into electrical signals. But most sensors output analog signals. 
+                    Here's how Arduino bridges the gap:</p>
+                <ul>
+                    <li><p>Analog-to-Digital Converter (ADC): <br> This built-in circuit within the Arduino takes an analog voltage and converts it into a digital number. The range of this number usually goes from 0 (representing 0 volts) to 1023 (representing the maximum voltage, typically 5 volts on Arduino Uno). </p></li>
+                    <li><p>Reading Analog Input: <br> We use the analogRead(pin) function in Arduino code. This function takes a pin number (where the sensor is connected) and returns the digital value representing the voltage read from the sensor. </p></li>
+                </ul>
+                <h2>Mini-project (Reading Light with an LDR)</h2>
+                <p>
+                    Let's build a circuit to measure light intensity using a Light Dependent Resistor (LDR). LDRs change resistance based on the amount of light they receive. Here's what you'll need:
+                    
+                    <ul>
+                        <li>Arduino Uno</li>
+                        <li>Breadboard</li>
+                        <li>Jumper wires</li>
+                        <li>LDR</li>
+                        <li>100 ohm resistor</li>
+                        <li>LED</li>
+                    </ul>
+                    Code:
+                    <br>
+                    int sensorPin = A0; // LDR connected to analog pin 0<br>
+                    int ledPin = 13;    // LED connected to digital pin 13<br>
+                    <br>
+                    void setup() {<br>
+                      pinMode(ledPin, OUTPUT); // Set LED pin as output<br>
+                    }<br>
+                    <br>
+                    void loop() {<br>
+                      int sensorValue = analogRead(sensorPin); // Read analog value from LDR<br>
+                      int brightness = map(sensorValue, 0, 1023, 0, 255); // Map analog value to LED brightness (0-255)<br>
+                      analogWrite(ledPin, brightness); // Control LED brightness based on sensor reading<br>
+                      delay(100); // Delay for stability<br>
+                    }<br>
+                    <h3>Explanation:</h3>
+                    <p>
+                    We define pins for the LDR (analog) and LED (digital).<br>
+                    In setup(), we set the LED pin as output.<br>
+                    Inside the loop(), we read the analog value from the LDR using analogRead(sensorPin).<br>
+                    The map() function converts the analog value (0-1023) to a brightness value (0-255) suitable for controlling the LED.<br>
+                    analogWrite(ledPin, brightness) controls the LED brightness based on the sensor reading (brighter with more light).<br>
+                    A small delay (delay(100)) ensures smooth operation.</p>
+    </body>
+</html>

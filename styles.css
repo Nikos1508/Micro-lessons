@@ -43,6 +43,15 @@ body{
     text-align: center;
 }
 
+#arduino-gif{
+    justify-content: left;
+    width: 500px;
+    border-radius: 20px;
+    margin-right: 25px;
+    margin-left: 12px;
+    margin-top: 75px;
+}
+
 #td{
     margin-top: 10px;
     margin-bottom: 10px;

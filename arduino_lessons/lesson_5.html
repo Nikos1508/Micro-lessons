@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="/styles.css" /> 
+        <title> Micro-lessons </title>
+    </head>
+    <body>
+        <div id="nav-bar">
+            <img style="width: 180px; height: 180px;" src="/media/default.png" />  
+            
+            <div id="nav-item"><a href="/index.html"> Home Page </a></div>
+            <div id="nav-item"><a href="/arduino.html"> <img src="/media/arduino-logo.png" height="60px"> </a></div>
+            <div id="nav-item"><a href="/raspberry_pi.html"> <img src="/media/raspberry-pi-logo.png" height="60px"> </a></div>
+        </div>
+        <div id="lesson">
+            <h2>Bringing Your Projects to Life with motors</h2>
+            <p>
+                In the previous lessons, you conquered the world of sensors, gathering information from the environment. 
+                Now, it's time to take action with actuators! These are electrical devices that convert electrical signals from your 
+                Arduino into physical movements or actions. Let's explore common actuators and how to integrate them into your interactive projects.
+            </p>
+            <h2>Types of Actuators:</h2>
+            <ul>
+                <li><b>Motors: </b>These create rotary motion (spinning). There are various types:</li><br>
+                <ul>
+                    <li><b>DC Motors: </b>Simple and affordable, they spin continuously in one direction based on voltage polarity.</li>
+                    <li><b>Stepper Motors: </b>Offer precise control over rotations in specific steps. They require dedicated driver circuits.</li>
+                    <li><b>Servo Motors: </b>Combine a motor with a position feedback mechanism, allowing for precise control of a shaft angle.</li>
+                </ul><br>
+                <li><b>Solenoids: </b>These use electromagnetism to create a linear push or pull motion. They are ideal for triggering mechanisms or simple on/off actions.</li>
+                <br>
+                <li><b>Relays: </b>Act as electronically controlled switches. They can handle higher currents compared to Arduino pins, allowing you to control devices like lamps or motors that require more power.</li>
+            </ul>
+            <h2>Controlling Motors and Servos:</h2>
+            <p>Arduino can't directly power most motors or servos due to current limitations.  Here's how we bridge the gap:</p>
+            <ul>
+                <li><b>Motor Driver Modules: </b>These modules act as intermediaries between Arduino and the motor. They take control signals from Arduino and provide the necessary power and control for the motor to operate. Popular driver modules include L298N for DC motors and TB6612 for stepper motors.</li>
+                <br>
+                <li><b>Servo Library: </b>The Arduino Servo library simplifies controlling servo motors. You can include this library in your code and use functions like <code>servo.write(angle)</code>to set the desired position of the servo shaft.</li>
+            </ul>
+            <h2>Mini-project (Building a Simple Servo Sweep):</h2>
+            <h3>Components:</h3>
+            <ul>
+                <li>Arduino Uno</li>
+                <li>Breadboard</li>
+                <li>Jumper wires</li>
+                <li>Servo motor</li>
+            </ul>
+            <h3>Code:</h3>
+
+            #include <Servo.h> // Include Servo library<br>
+                <br>
+                Servo myservo;  // Create a servo object<br>
+                <br>
+                int pos = 0;    // Variable to store servo position<br>
+                <br>
+                void setup() {<br>
+                  myservo.attach(9); // Attach servo to pin 9<br>
+                }<br>
+                <br>
+                void loop() {<br>
+                  // Sweep from 0 to 180 degrees (adjust range for your servo)<br>
+                  for (pos = 0; pos <= 180; pos += 1) {<br>
+                    myservo.write(pos); // Set servo position<br>
+                    delay(15);           // Delay for smooth movement<br>
+                  }<br>
+                  // Sweep back from 180 to 0 degrees<br>
+                  for (pos = 180; pos >= 0; pos -= 1) {<br>
+                    myservo.write(pos);<br>
+                    delay(15);<br>
+                  }<br>
+            <h2>Explanation:</h2>
+            <ol>
+                <li>We include the Servo library to control the servo.</li>
+                <li>We create a servo object named myservo.</li>
+                <li>In setup(), we attach the servo to digital pin 9.</li>
+                <li>Inside the loop(), a for loop iterates from 0 to 180 degrees, setting the servo position with myservo.write(pos) at each step.</li>
+                <li>A delay ensures smooth movement between positions.</li>
+                <li>The loop then iterates backward (180 to 0) to complete the sweep.</li>
+            </ol>
+            <p>
+                <b>Remember:</b> Choosing the right actuator and driver module depends on your project requirements.  
+                Research different options and explore their specifications before diving into complex builds.  
+                The world of actuators unlocks a whole new dimension of possibilities for your Arduino creations. 
+                So, get creative and bring your projects to life!
+            </p>
+        </div>
+    </body>
+</html>

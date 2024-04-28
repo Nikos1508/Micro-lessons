@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="/styles.css" /> 
+        <title> Micro-lessons </title>
+    </head>
+    <body>
+        <div id="nav-bar">
+            <img style="width: 180px; height: 180px;" src="/media/default.png" />  
+            
+            <div id="nav-item"><a href="/index.html"> Home Page </a></div>
+            <div id="nav-item"><a href="/arduino.html"> <img src="/media/arduino-logo.png" height="60px"> </a></div>
+            <div id="nav-item"><a href="/raspberry_pi.html"> <img src="/media/raspberry-pi-logo.png" height="60px"> </a></div>
+        </div>
+        <div id="lesson">
+            <h2>Unveiling the Sensor World: Seeing, Feeling, Reacting with Arduino</h2>
+            <p>
+                The magic of Arduino truly shines when it interacts with the physical world through sensors. 
+                Sensors act as electronic eyes, ears, and noses, feeding your Arduino with valuable information about its surroundings.  
+                This lesson will equip you with the knowledge to connect, read from, and react to various commonly used sensors.
+            </p>
+            <h2>Common Sensor Types:</h2>
+            <ul>
+                <li><b>Temperature Sensors: </b>These measure temperature, often using a thermistor (resistance changes with temperature) or an integrated circuit (IC) like the LM35. They are crucial for projects like temperature monitoring systems or weather stations.</li> <br>
+                <li><b>Light Sensors: </b>Light Dependent Resistors (LDRs) change resistance based on ambient light levels. Photodiodes convert light intensity into a voltage. These are perfect for building light-activated projects like night lights or automatic dimming systems.</li> <br>
+                <li><b>Motion Sensors: </b>These detect movement or presence. Passive Infrared (PIR) sensors detect heat signatures from moving objects. Breakbeam sensors use light to detect an object interrupting the beam. These are great for building security alarms, automatic door openers, or interactive games.</li> <br>
+            </ul>
+            <h2>Connecting Sensors to Arduino:</h2>
+            <p>Most sensors connect to Arduino's analog or digital pins. Here's a general guideline:</p>
+            <ul>
+                <li><b>Analog Sensors: </b>These typically connect to analog input pins (marked A0, A1, etc.) They output a voltage that varies based on the sensed quantity. For reading input from analog pins we use the analogRead(pin) function. This function takes the analog pin number as input and returns a digital value between 0 (0 volts) and 1023 (5 volts on Arduino Uno).</li>
+                <br>
+                <li><b>Digital pins: </b>These connect to digital input pins (marked 2, 3, etc.) They typically output a high (5V) or low (0V) voltage depending on the sensor state (e.g., motion detected or not). For reading input from analog pins we use the digitalRead(pin) function. This function takes the digital pin number as input and returns either HIGH (logical 1) or LOW (logical 0) depending on the sensor output.</li>
+            </ul>
+            <h2>Mini-project (Simple temperature indicator):</h2>
+            <h3>Components:</h3>
+            <ul>
+                <li>Arduino Uno</li>
+                <li>Breadboard</li>
+                <li>Jumper wires</li>
+                <li>LM35 temperature sensor</li>
+                <li>220 ohm resistor (for the sensor)</li>
+                <li>LED (any color)</li>
+                <li>330 ohm resistor (for the LED)</li>
+            </ul>
+            <p>
+                How it Works:<br>
+                The LM35 sensor outputs a voltage directly proportional to the temperature in degrees Celsius (10mV/°C). We'll use this voltage to control the brightness of an LED, making it glow brighter as the temperature increases.
+            </p>
+            Code:
+            <br>
+            const int sensorPin = A0; // LM35 sensor connected to analog pin 0<br>
+            const int ledPin = 13;    // LED connected to digital pin 13<br>
+            <br>
+            void setup() {<br>
+            pinMode(ledPin, OUTPUT); // Set LED pin as output<br>
+            }<br>
+            <br>
+            void loop() {<br>
+            // Read voltage from sensor (conversion to Celsius is optional here)<br>
+            int sensorValue = analogRead(sensorPin);<br>
+            <br>
+            // Map sensor value (0-1023) to a brightness value (0-255) for the LED<br>
+            int brightness = map(sensorValue, 0, 1023, 0, 255);<br>
+            <br>
+            // Control LED brightness based on sensor reading<br>
+            analogWrite(ledPin, brightness);<br>
+            <br>
+            delay(100); // Delay for stability<br>
+            }<br><br>
+            <h2>Explanation:</h2>
+            <ol>
+                <li>We define constant pins for the sensor and LED.</li>
+                <li>In setup(), we set the LED pin as output.</li>
+                <li>Inside the loop(), we read the analog value from the sensor.</li>
+                <li>We don't convert the voltage to temperature (°C) here for simplicity. You can add a conversion formula if needed.</li>
+                <li>The map() function converts the sensor value (0-1023) to a brightness value (0-255) suitable for the LED.</li>
+                <li>analogWrite(ledPin, brightness)controls the LED brightness based on the sensor reading (brighter with higher temperature).</li>
+                <li>A small delay ensures smooth LED response.</li>
+            </ol>
+        </div>
+    </body>
+</html>

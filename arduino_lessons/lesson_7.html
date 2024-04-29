@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="/styles.css" /> 
+        <title> Micro-lessons </title>
+    </head>
+    <body>
+        <div id="nav-bar">
+            <img style="width: 180px; height: 180px;" src="/media/default.png" />  
+            
+            <div id="nav-item"><a href="/index.html"> Home Page </a></div>
+            <div id="nav-item"><a href="/arduino.html"> <img src="/media/arduino-logo.png" height="60px"> </a></div>
+            <div id="nav-item"><a href="/raspberry_pi.html"> <img src="/media/raspberry-pi-logo.png" height="60px"> </a></div>
+        </div>
+        <div id="lesson">
+            <h2>Illuminating Your Projects: Exploring Displays with Arduino</h2>
+            <p>
+                So far, you've mastered sensor inputs and actuator outputs. Now, let's add another dimension to your projects - 
+                visual feedback with displays! This lesson delves into common display technologies used with Arduino and guides 
+                you on incorporating them into interactive creations.
+            </p>
+            <h2>Display Technologies:</h2>
+            <ul>
+                <li><b>Liquid Crystal Displays (LCDs):</b> These classic displays use liquid crystals to manipulate light and create characters or images. They are:</li>
+                <ul>
+                    <li>Affordable</li>
+                    <li>Relatively simple to interface with Arduino</li>
+                    <li>Offer backlighting options</li>
+                    <li>May have limited viewing angles and refresh rates.</li>
+                </ul>
+                <br>
+                <li><b>Organic Light-Emitting Diode (OLED) Displays:</b> These newer displays use organic materials that emit light when an electric current passes through them. </li>
+            </ul>
+            <h2>Wiring Displays with Arduino:</h2>
+            <p>
+                Most displays connect to Arduino using a series of pins for data, control signals, and power. 
+                The specific connections depend on the display type and controller chip it uses.  Here are some general guidelines:
+            </p>
+            <ul>
+                <li><b>Data Pins:</b>These transfer information from Arduino to the display for what to show.</li>
+                <li><b>Control Pins:</b>These control functions like enabling the display or setting contrast.</li>
+                <li><b>Power Pins:</b>These provide the necessary voltage for the display to operate.</li>
+            </ul>
+            <h2>Mini-project (Building a Simple Clock with an LCD):</h2>
+            <h3>Components:</h3>
+            <ul>
+                <li>Arduino Uno</li>
+                <li>Breadboard</li>
+                <li>Jumper wires</li>
+                <li>LCD with I2C interface (specific model with library support)</li>
+            </ul>
+            <h3>Code (using LiquidCrystal library):</h3>
+            <code>
+            #include LiquidCrystal.h  // Include LCD library<br>
+            <br>
+            const int rs = 4, en = 5, d4 = 6, d5 = 7, d6 = 8, d7 = 9; // LCD pin connections (adjust based on your LCD)<br>
+            LiquidCrystal lcd(rs, en, d4, d5, d6, d7);<br>
+            <br>
+            void setup() {<br>
+                lcd.begin(16, 2); // Initialize LCD (16 columns, 2 rows)<br>
+                lcd.clear(); // Clear the display<br>
+            }<br>
+            <br>
+            void loop() {<br>
+                // Get current time components<br>
+                int hours = hour();<br>
+                int minutes = minute();<br>
+                int seconds = second();<br>
+                <br>
+                // Format and display time on LCD<br>
+                lcd.setCursor(0, 0); // Set cursor position (0, 0)<br>
+                lcd.print(hours);<br>
+                lcd.print(":");<br>
+                lcd.print(minutes, DEC);<br>
+                lcd.print(":");<br>
+                lcd.print(seconds, DEC);<br>
+                <br>
+                delay(1000); // Update every second<br>
+            }<br></code><br>
+            <h3>Explanation:</h3>
+            <ol>
+                <li>We include the LiquidCrystal library for LCD control.</li>
+                <li>We define pin connections for the LCD (adjust based on your model's datasheet).</li>
+                <li>In setup(), we initialize the LCD with its size and clear the display.</li>
+                <li>Inside the loop(), we get the current time components using built-in Arduino functions.</li>
+                <li>We format the time string and use lcd.print to display it on the LCD at a specific position (cursor).</li>
+                <li>A delay ensures the time updates every second.</li>
+            </ol>
+            <p>
+                This is a basic example, but it demonstrates displaying information on an LCD with Arduino code. You can expand 
+                on this by adding functionalities like date display, alarms, or even scrolling messages.Explore different display 
+                libraries and functionalities to create even more visually engaging and interactive projects!  With displays at 
+                your disposal, the possibilities for bringing your Arduino creations to life are truly limitless.
+            </p>
+        </div>
+    </body>
+</html>

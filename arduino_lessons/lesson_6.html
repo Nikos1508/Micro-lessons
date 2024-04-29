@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" type="text/css" href="/styles.css" /> 
+        <title> Micro-lessons </title>
+    </head>
+    <body>
+        <div id="nav-bar">
+            <img style="width: 180px; height: 180px;" src="/media/default.png" />  
+            
+            <div id="nav-item"><a href="/index.html"> Home Page </a></div>
+            <div id="nav-item"><a href="/arduino.html"> <img src="/media/arduino-logo.png" height="60px"> </a></div>
+            <div id="nav-item"><a href="/raspberry_pi.html"> <img src="/media/raspberry-pi-logo.png" height="60px"> </a></div>
+        </div>
+        <div id="lesson">
+            <h2>Talking to Your Computer: Serial Communication with Arduino</h2>
+            <p>
+                The magic of Arduino doesn't exist in isolation. Serial communication allows your Arduino to 
+                exchange data with your computer, opening doors for debugging, data logging, and interactive 
+                projects.  Let's dive into the world of serial communication and explore its functionalities 
+                in Arduino.
+            </p>
+            <h2>What is Serial Communication?</h2>
+            <p>
+                Serial communication refers to transmitting data one bit at a time over a serial interface. 
+                It's like having a conversation where you send and receive information one character (letter or number) 
+                at a time. In Arduino, the serial interface is typically established through a USB cable connected to your computer.
+            </p>
+            <h2>Communicating with the Computer:</h2>
+            <p>Arduino provides built-in functions for serial communication:</p>
+            <ul>
+                <li><b>Serial.begin(baudRate): </b> Initializes serial communication at a specific baud rate (speed of data transmission). <br>A common baud rate is 9600.</li>
+                <br>
+                <li><b>Serial.print(data): </b> Sends any data type (numbers, strings) to the computer's serial monitor.</li>
+                <br>
+                <li><b>Serial.println(data): </b>Similar to print, but adds a newline character after the data, making it easier to read in the monitor.</li>
+                <br>
+                <li><b>Serial.available(): </b>Checks if there's data available from the computer (useful for two-way communication).</li>
+                <br>
+                <li><b>Serial.read(): </b>Reads a single byte of data sent from the computer.</li>
+            </ul>
+            <br>
+            <p>
+                Most Arduino development environments (like Arduino IDE) include a built-in Serial Monitor. 
+                This acts as a window where you can see the data sent from your Arduino code and even send 
+                data back to the board using the typing field.
+            </p>
+            <h2>Mini-project (Sending Sensor Data to the Computer):</h2>
+            <h3>Components:</h3>
+            <ul>
+                <li>Arduino Uno</li>
+                <li>Breadboard</li>
+                <li>Jumper wires</li>
+                <li>LM35 temperature sensor</li>
+                <li>220 ohm resistor (for the sensor)</li>
+            </ul>
+            <h3>Code:</h3>
+            <code>
+            <br>
+            const int sensorPin = A0; // LM35 sensor connected to analog pin 0<br>
+            <br>
+            void setup() {<br>
+            Serial.begin(9600); // Initialize serial communication at 9600 baud<br>
+            }<br>
+            <br>
+            void loop() {<br>
+            // Read analog value from sensor (conversion to Celsius optional here)<br>
+            int sensorValue = analogRead(sensorPin);<br>
+            <br>
+            // Send sensor value to the serial monitor<br>
+            Serial.print("Temperature: ");<br>
+            Serial.print(sensorValue); // You can convert to Celsius here if needed<br>
+            Serial.println(" (raw value)"); // Add newline for readability<br>
+            <br>
+            delay(1000); // Delay between readings<br>
+            }<br></code><br>
+            <img src="/media/Temprature.png" width="1000rem">
+            <br>
+            <h3>Explanation:</h3>
+            <ol>
+                <li>We define the sensor pin constant.</li>
+                <li>In setup(), we initialize serial communication at 9600 baud.</li>
+                <li>Inside the loop(), we read the analog value from the sensor.</li>
+                <li>We use Serial.print and Serial.println to send messages and the sensor value to the serial monitor.</li>
+                <li>A delay ensures readings aren't sent too frequently.</li>
+            </ol>
+            <h3>Running the Project:</h3>
+            <ol>
+                <li>Upload the code to your Arduino.</li>
+                <li>Open the serial monitor in your Arduino IDE (usually at 9600 baud).</li>
+                <li>You should see temperature readings (raw values) displayed in the monitor every second.</li>
+            </ol>
+            <br>
+            <p>
+                This is a basic example, but it demonstrates sending sensor data to the computer via serial 
+                communication. You can modify it to convert sensor readings to meaningful units or create 
+                interactive projects where user input from the computer controls your Arduino.
+            </p>
+        </div>
+    </body>
+</html>

@@ -52,6 +52,15 @@ body{
     margin-top: 75px;
 }
 
+code{
+    color: gray;
+}
+
+code::selection{
+    color: rgb(245, 174, 43);
+    background-color: #1c80c2;
+}
+
 #td{
     margin-top: 10px;
     margin-bottom: 10px;
@@ -64,7 +73,7 @@ body{
     font-size: 16px;
     background-image: url('/media/pngtree-blue-background-and-wallpaper-hd-image-victor-free-vector-image_2422840.png');
     background-repeat: no-repeat;
-    a {color: #19a5a5;}
+    a {color: #0684d2d6;}
     a:visited {color: #0684d2d6;}
     a:hover {color: #a41cc2;}
 }
